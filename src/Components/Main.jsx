@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"; // Import React, useState, useEffect hooks
+import React, { useState, useEffect, useCallback} from "react"; // Import React, useState, useEffect hooks
 import Card from "./Card"; // Import Card component
 import Pokeinfo from "./Pokeinfo"; // Import Pokeinfo component
 import axios from "axios"; // Import axios for API calls
@@ -11,7 +11,7 @@ const Main = () => {
     const limit = 10; // Number of Pokemon per page
 
     // Function to fetch Pokemon data from API
-    const pokeFun = async (offset = 0) => {
+    const pokeFun = useCallback(async (offset = 0) => {
         setLoading(true); // Start loading
         try {
             const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
@@ -21,7 +21,7 @@ const Main = () => {
         } finally {
             setLoading(false); // Stop loading
         }
-    };
+    },[]);
 
     // Function to get detailed Pokemon data
     const getPokemon = async (res) => {
@@ -37,7 +37,7 @@ const Main = () => {
     // Fetch data whenever currentPage changes
     useEffect(() => {
         pokeFun(currentPage * limit);
-    }, [currentPage]);
+    }, [currentPage, pokeFun]);
 
     return (
         <div className="container">
