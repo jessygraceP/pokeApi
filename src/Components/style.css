@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Poke{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Poke img {
+    max-width: 100%;
+    height: auto;
+    background-color: none;
+  }
+
+.left-content, .right-content {
+    flex-basis: 100%;
+    margin: 10px 0;
+}
+
+.left-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+}
+
+.card {
+    background-color: #9EDEF9;
+    border-radius: 1rem;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+.card button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: absolute; /* Position the heart button relative to the card */
+    top: 10px; /* Adjust as needed to position the heart button */
+    right: 10px; /* Adjust as needed to position the heart button */
+}
+
+.card button svg {
+    width: 24px; /* Set the width of the heart icon */
+    height: 24px; /* Set the height of the heart icon */
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.card button.active svg {
+    fill: red; /* Set the heart icon color to red when active */
+}
+
+.right-content {
+    width: 100%;
+    text-align: center;
+    color: black;
+    margin-top: 50px;
+    
+    flex-basis: 50%;
+    position: relative;
+}
+
+.right-content img {
+    margin: 1.5rem auto;
+    height: 160px;
+}
+
+.right-content h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.abilities {
+    width: 70%;
+    margin: 1rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.abilities .group {
+    background-color: #b74555;
+    color: white;
+    padding: 0.5rem;
+    font-size: 12px;
+    border-radius: 8px;
+    margin: 0.5rem;
+}
+
+.base-stat {
+    margin-top: 2rem;
+}
+
+.base-stat h3 {
+    margin: 0.5rem 0;
+}
+
+.arrow-btn {
+    position: absolute;
+    top: 20%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #b74555;
+    z-index: 1;
+}
+
+.arrow-btn:hover {
+    color: #a03041;
+}
+
+.prev-btn {
+    left: 100px; /* Adjust as needed */
+}
+
+.next-btn {
+    right: 100px; /* Adjust as needed */
+}
+
+
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .right-content {
+        position: fixed;
+        top: 150px;
+        right: 5%;
+        width: 40%;
+        margin-top: 0;
+    }
+
+    .left-content {
+        flex-basis: 60%;
+        margin-right: 20px;
+    }
+
+    .arrow-btn {
+        font-size: 0.5rem; /* Increase size for larger screens */
+        border: #080755 solid 10px;
+        border-radius: 30px;
+        top: 100px;
+    }
+}
